@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты - Лекарства на Дом</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <img src="images/логотип.jpeg" alt="Лекарства на Дом" class="logo-image">
+                    <div class="logo-text">Лекарства<span>НаДом</span></div>
+                </div>
+                
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Главная</a></li>
+                    <li><a href="catalog.html" class="nav-link">Каталог</a></li>
+                    <li><a href="cart.html" class="nav-link">Корзина <span class="cart-count">0</span></a></li>
+                    <li><a href="profile.html" class="nav-link">Профиль</a></li>
+                    <li><a href="contacts.html" class="nav-link active">Контакты</a></li>
+                </ul>
+                
+                <div class="header-actions">
+                    <div class="search-box">
+                        <input type="text" class="search-input" placeholder="Поиск лекарств...">
+                        <span class="search-icon"><i class="fas fa-search"></i></span>
+                    </div>
+                    
+                    <div class="auth-buttons">
+                        <button class="btn btn-outline" id="loginBtn">Войти</button>
+                        <button class="btn btn-primary" id="registerBtn">Регистрация</button>
+                    </div>
+                    
+                    <div class="mobile-menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main style="padding-top: 140px;">
+        <div class="container">
+            <div class="section-header">
+                <h1 class="section-title">Контакты</h1>
+                <p class="section-subtitle">Мы всегда готовы помочь вам с выбором лекарств и ответить на все вопросы</p>
+            </div>
+
+            <div class="contacts-layout">
+                <!-- Контактная информация -->
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <h3>Телефон</h3>
+                        <p>8-800-505-35-35</p>
+                        <span>Бесплатно по России</span>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3>Email</h3>
+                        <p>support@lekarstva-na-dom.ru</p>
+                        <span>Ответим в течение часа</span>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h3>Время работы</h3>
+                        <p>Круглосуточно</p>
+                        <span>Без выходных</span>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3>Адрес</h3>
+                        <p>г. Москва, ул. Примерная, д. 123</p>
+                        <span>Главный офис</span>
+                    </div>
+                </div>
+
+                <!-- Форма обратной связи -->
+                <div class="contact-form-section">
+                    <div class="form-card">
+                        <h2>Обратная связь</h2>
+                        <p>Заполните форму ниже и мы свяжемся с вами в ближайшее время</p>
+                        
+                        <form class="contact-form" id="contactForm">
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="contactName">Ваше имя *</label>
+                                    <input type="text" id="contactName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="contactEmail">Email *</label>
+                                    <input type="email" id="contactEmail" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="contactPhone">Телефон</label>
+                                    <input type="tel" id="contactPhone">
+                                </div>
+                                <div class="form-group">
+                                    <label for="contactSubject">Тема</label>
+                                    <select id="contactSubject">
+                                        <option value="">Выберите тему</option>
+                                        <option value="order">Вопрос по заказу</option>
+                                        <option value="delivery">Доставка</option>
+                                        <option value="product">Вопрос о товаре</option>
+                                        <option value="return">Возврат</option>
+                                        <option value="other">Другое</option>
+                                    </select>
+                                </div>
+                                <div class="form-group full-width">
+                                    <label for="contactMessage">Сообщение *</label>
+                                    <textarea id="contactMessage" rows="5" required></textarea>
+                                </div>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary btn-full">
+                                <i class="fas fa-paper-plane"></i> Отправить сообщение
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Section -->
+            <div class="faq-section">
+                <h2>Часто задаваемые вопросы</h2>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <h3>Как быстро осуществляется доставка?</h3>
+                        <p>Доставка по городу осуществляется в течение 60 минут. В пригород - до 2 часов.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3>Какие способы оплаты принимаются?</h3>
+                        <p>Мы принимаем наличные, банковские карты, онлайн-платежи через СБП и электронные кошельки.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3>Можно ли вернуть лекарства?</h3>
+                        <p>Согласно законодательству, лекарственные средства надлежащего качества возврату не подлежат.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3>Есть ли доставка в другие города?</h3>
+                        <p>Да, мы осуществляем доставку по всей России через партнерские службы доставки.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>Лекарства на Дом</h3>
+                    <p>Сервис доставки лекарств №1 в России. Более 1,000,000 довольных клиентов.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-vk"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Категории</h3>
+                    <ul class="footer-links">
+                        <li><a href="catalog.html?category=антибиотики">Антибиотики</a></li>
+                        <li><a href="catalog.html?category=витамины">Витамины</a></li>
+                        <li><a href="catalog.html?category=обезболивающие">Обезболивающие</a></li>
+                        <li><a href="catalog.html?category=сердечно-сосудистые">Сердечно-сосудистые</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Помощь</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Доставка и оплата</a></li>
+                        <li><a href="#">Возврат</a></li>
+                        <li><a href="#">Вопросы и ответы</a></li>
+                        <li><a href="contacts.html">Контакты</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Контакты</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-phone"></i> 8-800-505-35-35</li>
+                        <li><i class="fas fa-envelope"></i> support@lekarstva-na-dom.ru</li>
+                        <li><i class="fas fa-clock"></i> Круглосуточно</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Лекарства на Дом. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Модальные окна -->
+    <div class="modal" id="loginModal">
+        <!-- Содержимое такое же как в index.html -->
+    </div>
+
+    <div class="modal" id="registerModal">
+        <!-- Содержимое такое же как в index.html -->
+    </div>
+
+    <script src="js/app.js"></script>
+    <script>
+        // Обработка формы обратной связи
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = '<div class="loading-spinner-small"></div> Отправка...';
+            submitBtn.disabled = true;
+            
+            // Имитация отправки
+            setTimeout(() => {
+                if (window.app && typeof window.app.showNotification === 'function') {
+                    window.app.showNotification('Сообщение успешно отправлено!', 'success');
+                } else {
+                    alert('Сообщение успешно отправлено!');
+                }
+                
+                this.reset();
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }, 2000);
+        });
+    </script>
+</body>
+</html>

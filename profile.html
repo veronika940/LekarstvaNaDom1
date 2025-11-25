@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Профиль - Лекарства на Дом</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <img src="images/логотип.jpeg" alt="Лекарства на Дом" class="logo-image">
+                    <div class="logo-text">Лекарства<span>НаДом</span></div>
+                </div>
+                
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Главная</a></li>
+                    <li><a href="catalog.html" class="nav-link">Каталог</a></li>
+                    <li><a href="cart.html" class="nav-link">Корзина <span class="cart-count">0</span></a></li>
+                    <li><a href="profile.html" class="nav-link active">Профиль</a></li>
+                    <li><a href="contacts.html" class="nav-link">Контакты</a></li>
+                </ul>
+                
+                <div class="header-actions">
+                    <div class="search-box">
+                        <input type="text" class="search-input" placeholder="Поиск лекарств...">
+                        <span class="search-icon"><i class="fas fa-search"></i></span>
+                    </div>
+                    
+                    <div class="auth-buttons">
+                        <button class="btn btn-outline" id="loginBtn">Войти</button>
+                        <button class="btn btn-primary" id="registerBtn">Регистрация</button>
+                    </div>
+                    
+                    <div class="mobile-menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main style="padding-top: 140px;">
+        <div class="container">
+            <div class="section-header">
+                <h1 class="section-title">Личный кабинет</h1>
+            </div>
+
+            <div class="profile-layout">
+                <!-- Боковая панель навигации -->
+                <aside class="profile-sidebar">
+                    <div class="user-info">
+                        <div class="user-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="user-details">
+                            <h3 id="userName">Гость</h3>
+                            <p id="userEmail">Войдите в аккаунт</p>
+                        </div>
+                    </div>
+                    
+                    <nav class="profile-nav">
+                        <a href="#profile" class="nav-item active" data-tab="profile">
+                            <i class="fas fa-user-circle"></i>
+                            <span>Профиль</span>
+                        </a>
+                        <a href="#orders" class="nav-item" data-tab="orders">
+                            <i class="fas fa-shopping-bag"></i>
+                            <span>Мои заказы</span>
+                        </a>
+                        <a href="#favorites" class="nav-item" data-tab="favorites">
+                            <i class="fas fa-heart"></i>
+                            <span>Избранное</span>
+                        </a>
+                        <a href="#addresses" class="nav-item" data-tab="addresses">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Адреса доставки</span>
+                        </a>
+                        <a href="#settings" class="nav-item" data-tab="settings">
+                            <i class="fas fa-cog"></i>
+                            <span>Настройки</span>
+                        </a>
+                    </nav>
+                    
+                    <div class="profile-actions">
+                        <button class="btn btn-outline btn-full" id="logoutBtn">
+                            <i class="fas fa-sign-out-alt"></i> Выйти
+                        </button>
+                    </div>
+                </aside>
+
+                <!-- Основное содержимое -->
+                <div class="profile-content">
+                    <!-- Вкладка профиля -->
+<div id="profileTab" class="tab-content active">
+    <div class="profile-card">
+        <div class="profile-header">
+            <h2>Личная информация</h2>
+            <button class="btn btn-outline" id="editProfileBtn">
+                <i class="fas fa-edit"></i> Редактировать
+            </button>
+        </div>
+        
+        <div class="profile-info" id="profileDisplay">
+            <div class="info-grid">
+                <div class="info-item">
+                    <label>Имя:</label>
+                    <span id="displayName">Не указано</span>
+                </div>
+                <div class="info-item">
+                    <label>Email:</label>
+                    <span id="displayEmail">Не указан</span>
+                </div>
+                <div class="info-item">
+                    <label>Телефон:</label>
+                    <span id="displayPhone">Не указан</span>
+                </div>
+                <div class="info-item">
+                    <label>Адрес:</label>
+                    <span id="displayAddress">Не указан</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="profile-edit" id="profileEdit" style="display: none;">
+            <form class="edit-form" id="profileForm">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="editName">Имя *</label>
+                        <input type="text" id="editName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editEmail">Email *</label>
+                        <input type="email" id="editEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editPhone">Телефон</label>
+                        <input type="tel" id="editPhone" placeholder="+7 (999) 123-45-67">
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="editAddress">Адрес *</label>
+                        <input type="text" id="editAddress" placeholder="Улица, дом, квартира" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editCity">Город *</label>
+                        <input type="text" id="editCity" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editPostalCode">Индекс</label>
+                        <input type="text" id="editPostalCode" placeholder="123456">
+                    </div>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="button" class="btn btn-outline" id="cancelEditBtn">Отмена</button>
+                    <button type="submit" class="btn btn-primary" id="saveProfileBtn">Сохранить</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+                    <!-- Вкладка заказов -->
+                    <div id="ordersTab" class="tab-content">
+                        <div class="profile-card">
+                            <h2>История заказов</h2>
+                            <div id="ordersList">
+                                <div class="loading">
+                                    <div class="loading-spinner"></div>
+                                    <p>Загрузка заказов...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Остальные вкладки -->
+                    <div id="favoritesTab" class="tab-content">
+                        <div class="profile-card">
+                            <h2>Избранное</h2>
+                            <div id="favoritesList">
+                                <div class="empty-state">
+                                    <div style="font-size: 3rem; margin-bottom: 1rem;">❤️</div>
+                                    <h3>У вас пока нет избранных товаров</h3>
+                                    <p>Добавляйте товары в избранное, чтобы не потерять</p>
+                                    <a href="catalog.html" class="btn btn-primary" style="margin-top: 1rem;">
+                                        Перейти в каталог
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="addressesTab" class="tab-content">
+                        <div class="profile-card">
+                            <h2>Адреса доставки</h2>
+                            <div id="addressesList">
+                                <div class="empty-state">
+                                    <div style="font-size: 3rem; margin-bottom: 1rem;">🏠</div>
+                                    <h3>У вас пока нет сохраненных адресов</h3>
+                                    <p>Добавьте адрес для быстрой доставки</p>
+                                    <button class="btn btn-primary" style="margin-top: 1rem;">
+                                        Добавить адрес
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="settingsTab" class="tab-content">
+                        <div class="profile-card">
+                            <h2>Настройки</h2>
+                            <div class="settings-list">
+                                <div class="setting-item">
+                                    <div class="setting-info">
+                                        <h4>Уведомления по email</h4>
+                                        <p>Получать уведомления о статусе заказов</p>
+                                    </div>
+                                    <label class="switch">
+                                        <input type="checkbox" checked>
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+                                <div class="setting-item">
+                                    <div class="setting-info">
+                                        <h4>SMS уведомления</h4>
+                                        <p>Получать SMS о доставке заказов</p>
+                                    </div>
+                                    <label class="switch">
+                                        <input type="checkbox">
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+                                <div class="setting-item">
+                                    <div class="setting-info">
+                                        <h4>Рекламные рассылки</h4>
+                                        <p>Получать информацию об акциях и скидках</p>
+                                    </div>
+                                    <label class="switch">
+                                        <input type="checkbox">
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>Лекарства на Дом</h3>
+                    <p>Сервис доставки лекарств №1 в России. Более 1,000,000 довольных клиентов.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-vk"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Категории</h3>
+                    <ul class="footer-links">
+                        <li><a href="catalog.html?category=антибиотики">Антибиотики</a></li>
+                        <li><a href="catalog.html?category=витамины">Витамины</a></li>
+                        <li><a href="catalog.html?category=обезболивающие">Обезболивающие</a></li>
+                        <li><a href="catalog.html?category=сердечно-сосудистые">Сердечно-сосудистые</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Помощь</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Доставка и оплата</a></li>
+                        <li><a href="#">Возврат</a></li>
+                        <li><a href="#">Вопросы и ответы</a></li>
+                        <li><a href="contacts.html">Контакты</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Контакты</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-phone"></i> 8-800-505-35-35</li>
+                        <li><i class="fas fa-envelope"></i> support@lekarstva-na-dom.ru</li>
+                        <li><i class="fas fa-clock"></i> Круглосуточно</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Лекарства на Дом. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Модальные окна -->
+    <div class="modal" id="loginModal">
+        <!-- Содержимое такое же как в index.html -->
+    </div>
+
+    <div class="modal" id="registerModal">
+        <!-- Содержимое такое же как в index.html -->
+    </div>
+
+    <script src="js/app.js"></script>
+    <script src="js/profile.js"></script>
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог лекарств - Лекарства на Дом</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <img src="images/логотип.jpeg" alt="Лекарства на Дом" class="logo-image">
+                    <div class="logo-text">Лекарства<span>НаДом</span></div>
+                </div>
+                
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Главная</a></li>
+                    <li><a href="catalog.html" class="nav-link active">Каталог</a></li>
+                    <li><a href="cart.html" class="nav-link">Корзина <span class="cart-count">0</span></a></li>
+                    <li><a href="profile.html" class="nav-link">Профиль</a></li>
+                    <li><a href="contacts.html" class="nav-link">Контакты</a></li>
+                </ul>
+                
+                <div class="header-actions">
+                    <div class="search-box">
+                        <input type="text" class="search-input" placeholder="Поиск лекарств...">
+                        <span class="search-icon"><i class="fas fa-search"></i></span>
+                    </div>
+                    
+                    <div class="auth-buttons">
+                        <button class="btn btn-outline" id="loginBtn">Войти</button>
+                        <button class="btn btn-primary" id="registerBtn">Регистрация</button>
+                    </div>
+                    
+                    <div class="mobile-menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main style="padding-top: 140px;">
+        <div class="container">
+            <div class="section-header">
+                <h1 class="section-title">Каталог лекарств</h1>
+                <div class="view-toggle">
+                    <button class="view-btn active" data-view="grid"><i class="fas fa-th"></i></button>
+                    <button class="view-btn" data-view="list"><i class="fas fa-list"></i></button>
+                </div>
+            </div>
+
+            <div class="catalog-layout">
+                <!-- Sidebar Filters -->
+                <aside class="filters-sidebar">
+                    <div class="filter-section">
+                        <h3>Поиск</h3>
+                        <input type="text" id="searchInput" placeholder="Название лекарства..." class="filter-input">
+                    </div>
+
+                    <div class="filter-section">
+                        <h3>Категория</h3>
+                        <select id="categoryFilter" class="filter-select">
+                            <option value="">Все категории</option>
+                            <option value="антибиотики">Антибиотики</option>
+                            <option value="витамины">Витамины</option>
+                            <option value="обезболивающие">Обезболивающие</option>
+                            <option value="сердечно-сосудистые">Сердечно-сосудистые</option>
+                            <option value="другое">Другое</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-section">
+                        <h3>Производитель</h3>
+                        <select id="manufacturerFilter" class="filter-select">
+                            <option value="">Все производители</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-section">
+                        <h3>Цена, ₽</h3>
+                        <div class="price-range">
+                            <input type="number" id="priceMin" placeholder="От" class="filter-input">
+                            <span>-</span>
+                            <input type="number" id="priceMax" placeholder="До" class="filter-input">
+                        </div>
+                    </div>
+
+                    <div class="filter-section">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="inStockFilter">
+                            <span class="checkmark"></span>
+                            Только в наличии
+                        </label>
+                    </div>
+
+                    <div class="filter-actions">
+                        <button class="btn btn-primary" id="applyFilters">Применить</button>
+                        <button class="btn btn-outline" id="resetFilters">Сбросить</button>
+                    </div>
+                </aside>
+
+                <!-- Main Content -->
+                <div class="catalog-content">
+                    <div class="catalog-toolbar">
+                        <div class="results-info" id="resultsInfo">
+                            Найдено препаратов: <strong>0</strong>
+                        </div>
+                        <div class="sorting">
+                            <label for="sortSelect">Сортировка:</label>
+                            <select id="sortSelect" class="filter-select">
+                                <option value="name_asc">По названию (А-Я)</option>
+                                <option value="name_desc">По названию (Я-А)</option>
+                                <option value="price_asc">По цене (возрастание)</option>
+                                <option value="price_desc">По цене (убывание)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="medicines-grid grid-view" id="medicinesList">
+                        <div class="loading">
+                            <div class="loading-spinner"></div>
+                            <p>Загрузка препаратов...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>Лекарства на Дом</h3>
+                    <p>Сервис доставки лекарств №1 в России. Более 1,000,000 довольных клиентов.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-vk"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Категории</h3>
+                    <ul class="footer-links">
+                        <li><a href="catalog.html?category=антибиотики">Антибиотики</a></li>
+                        <li><a href="catalog.html?category=витамины">Витамины</a></li>
+                        <li><a href="catalog.html?category=обезболивающие">Обезболивающие</a></li>
+                        <li><a href="catalog.html?category=сердечно-сосудистые">Сердечно-сосудистые</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Помощь</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Доставка и оплата</a></li>
+                        <li><a href="#">Возврат</a></li>
+                        <li><a href="#">Вопросы и ответы</a></li>
+                        <li><a href="contacts.html">Контакты</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Контакты</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-phone"></i> 8-800-505-35-35</li>
+                        <li><i class="fas fa-envelope"></i> support@lekarstva-na-dom.ru</li>
+                        <li><i class="fas fa-clock"></i> Круглосуточно</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Лекарства на Дом. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Модальные окна (такие же как в index.html) -->
+    <div class="modal" id="loginModal">
+        <!-- Содержимое такое же как в index.html -->
+    </div>
+
+    <div class="modal" id="registerModal">
+        <!-- Содержимое такое же как в index.html -->
+    </div>
+
+    <script src="js/app.js"></script>
+    <script src="js/catalog.js"></script>
+</body>
+</html>

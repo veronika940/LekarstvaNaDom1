@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лекарства на Дом - Доставка лекарств из аптек</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <img src="images/логотип.jpeg" alt="Лекарства на Дом" class="logo-image">
+                    <div class="logo-text">Лекарства<span>НаДом</span></div>
+                </div>
+                
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link active">Главная</a></li>
+                    <li><a href="catalog.html" class="nav-link">Каталог</a></li>
+                    <li><a href="cart.html" class="nav-link">Корзина <span class="cart-count">0</span></a></li>
+                    <li><a href="profile.html" class="nav-link">Профиль</a></li>
+                    <li><a href="contacts.html" class="nav-link">Контакты</a></li>
+                </ul>
+                
+                <div class="header-actions">
+                    <div class="search-box">
+                        <input type="text" class="search-input" placeholder="Поиск лекарств...">
+                        <span class="search-icon"><i class="fas fa-search"></i></span>
+                    </div>
+                    
+                    <div class="auth-buttons">
+                        <button class="btn btn-outline" id="loginBtn">Войти</button>
+                        <button class="btn btn-primary" id="registerBtn">Регистрация</button>
+                    </div>
+                    
+                    <div class="mobile-menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Доставка лекарств<br>за 60 минут</h1>
+                <p class="hero-subtitle">Более 10,000 препаратов от 500+ аптек. Бесплатная доставка от 999₽</p>
+                
+                <div class="hero-search">
+                    <input type="text" placeholder="Найдите лекарство, витамины, медицинские товары...">
+                    <button><i class="fas fa-search"></i> Найти</button>
+                </div>
+                
+                <div class="hero-features">
+                    <div class="feature">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Все сертифицировано</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-truck"></i>
+                        <span>Быстрая доставка</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-lock"></i>
+                        <span>Безопасная оплата</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="categories">
+        <div class="container">
+            <h2 class="section-title">Популярные категории</h2>
+            <div class="categories-grid">
+                <a href="catalog.html?category=антибиотики" class="category-card">
+                    <div class="category-icon">
+                        <img src="images/антибиотики.png" alt="Антибиотики">
+                    </div>
+                    <h3>Антибиотики</h3>
+                    <p>Широкий спектр действия</p>
+                </a>
+                
+                <a href="catalog.html?category=витамины" class="category-card">
+                    <div class="category-icon">
+                        <img src="images/витамины.jpg" alt="Витамины">
+                    </div>
+                    <h3>Витамины</h3>
+                    <p>Для поддержания иммунитета</p>
+                </a>
+                
+                <a href="catalog.html?category=обезболивающие" class="category-card">
+                    <div class="category-icon">
+                        <img src="images/обезболивающие.jpg" alt="Обезболивающие">
+                    </div>
+                    <h3>Обезболивающие</h3>
+                    <p>Быстрое действие</p>
+                </a>
+                
+                <a href="catalog.html?category=сердечно-сосудистые" class="category-card">
+                    <div class="category-icon">
+                        <img src="images/сердечно-сосудистые.jpg" alt="Сердечно-сосудистые">
+                    </div>
+                    <h3>Сердечно-сосудистые</h3>
+                    <p>Для здоровья сердца</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Medicines -->
+    <section class="medicines-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Популярные препараты</h2>
+                <a href="catalog.html" class="view-all">Смотреть все <i class="fas fa-arrow-right"></i></a>
+            </div>
+            
+            <div class="medicines-grid" id="popularMedicines">
+                <!-- Динамически загружаемые лекарства -->
+                <div class="loading">
+                    <div class="loading-spinner"></div>
+                    <p>Загрузка препаратов...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Почему выбирают Лекарства на Дом</h2>
+            <p class="section-subtitle">Быстро, надежно и удобно. Ваше здоровье - наш приоритет</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="images/быстрая достава.jpg" alt="Быстрая доставка">
+                    </div>
+                    <h3>Быстрая доставка</h3>
+                    <p>Доставка в течение 60 минут по городу. Курьеры на автомобилях и самокатах</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="images/удобная оплата.jpg" alt="Удобная оплата">
+                    </div>
+                    <h3>Удобная оплата</h3>
+                    <p>Наличными, картой, онлайн. Все виды оплаты для вашего удобства</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="images/гарантия качества.jpg" alt="Гарантия качества">
+                    </div>
+                    <h3>Гарантия качества</h3>
+                    <p>Все лекарства сертифицированы. Строгий контроль качества от поставщиков</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="images/поддержка.jpg" alt="Поддержка 24/7">
+                    </div>
+                    <h3>Поддержка 24/7</h3>
+                    <p>Круглосуточная поддержка и консультация профессиональных фармацевтов</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>Лекарства на Дом</h3>
+                    <p>Сервис доставки лекарств №1 в России. Более 1,000,000 довольных клиентов.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-vk"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Категории</h3>
+                    <ul class="footer-links">
+                        <li><a href="catalog.html?category=антибиотики">Антибиотики</a></li>
+                        <li><a href="catalog.html?category=витамины">Витамины</a></li>
+                        <li><a href="catalog.html?category=обезболивающие">Обезболивающие</a></li>
+                        <li><a href="catalog.html?category=сердечно-сосудистые">Сердечно-сосудистые</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Помощь</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Доставка и оплата</a></li>
+                        <li><a href="#">Возврат</a></li>
+                        <li><a href="#">Вопросы и ответы</a></li>
+                        <li><a href="contacts.html">Контакты</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Контакты</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-phone"></i> 8-800-505-35-35</li>
+                        <li><i class="fas fa-envelope"></i> support@lekarstva-na-dom.ru</li>
+                        <li><i class="fas fa-clock"></i> Круглосуточно</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Лекарства на Дом. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Вход в аккаунт</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form class="auth-form" id="loginForm">
+                    <div class="form-group">
+                        <label for="loginEmail">Email</label>
+                        <input type="email" id="loginEmail" placeholder="Ваш email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Пароль</label>
+                        <input type="password" id="loginPassword" placeholder="Ваш пароль" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">Войти</button>
+                </form>
+                <div class="auth-links">
+                    <a href="#">Забыли пароль?</a>
+                    <a href="#" id="showRegister">Создать аккаунт</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div class="modal" id="registerModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Регистрация</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form class="auth-form" id="registerForm">
+                    <div class="form-group">
+                        <label for="registerName">Имя</label>
+                        <input type="text" id="registerName" placeholder="Ваше имя" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerEmail">Email</label>
+                        <input type="email" id="registerEmail" placeholder="Ваш email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerPassword">Пароль</label>
+                        <input type="password" id="registerPassword" placeholder="Придумайте пароль" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerConfirmPassword">Подтвердите пароль</label>
+                        <input type="password" id="registerConfirmPassword" placeholder="Повторите пароль" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">Зарегистрироваться</button>
+                </form>
+                <div class="auth-links">
+                    <a href="#" id="showLogin">Уже есть аккаунт? Войти</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
